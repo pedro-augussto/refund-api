@@ -1,0 +1,265 @@
+type: collection.insomnia.rest/5.0
+name: Refund
+meta:
+  id: wrk_095f6722b23c4a1ab3c514de26ef39a4
+  created: 1743377572429
+  modified: 1743377572429
+collection:
+  - name: Users
+    meta:
+      id: fld_02e38743f9814b9ea320d2e69a65ea55
+      created: 1743382507991
+      modified: 1743382619990
+      sortKey: -1743382507991
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_00ad9bf43df041acb1bf252dfe079cd3
+          created: 1743382510579
+          modified: 1743391797976
+          isPrivate: false
+          sortKey: -1743382510579
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "PedroAugusto",
+            	"email": "pedroaugusto@email.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: users
+    environmentPropertyOrder:
+      "&":
+        - RESOURCE
+  - name: Sessions
+    meta:
+      id: fld_c841f8194f634a39b7d13241f9e815de
+      created: 1743384670376
+      modified: 1743384726923
+      sortKey: -1743384670376
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_7f68902d660942a0b4dd012bb6305c8e
+          created: 1743384674159
+          modified: 1743397615447
+          isPrivate: false
+          sortKey: -1743384674159
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "augusto@email.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: sessions
+  - name: Refunds
+    meta:
+      id: fld_a2657aa09b1f44ea9495bfbc492b0865
+      created: 1743388827845
+      modified: 1743388852974
+      sortKey: -1743388827845
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_010567695f454e2cba90e31325bbcaec
+          created: 1743388836327
+          modified: 1743391830917
+          isPrivate: false
+          sortKey: -1743388836327
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Almoço",
+            	"category": "food",
+            	"amount": 39.99,
+            	"filename": "comprovantesdgaegfafqwfwqfqwfqwfqwff214.png"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7f68902d660942a0b4dd012bb6305c8e',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Index
+        meta:
+          id: req_9ba876a284d848b0a7dbfdfa3e2cd6cb
+          created: 1743391145360
+          modified: 1743393322910
+          isPrivate: false
+          sortKey: -1743391145360
+        method: GET
+        parameters:
+          - id: pair_040e2c2435094cfaadf2dd47e615ab6c
+            name: name
+            value: PedroAugusto
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7f68902d660942a0b4dd012bb6305c8e',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}/7d70259e-82de-4292-84d9-8aff9a3dc182"
+        name: Show
+        meta:
+          id: req_7ccfb1fb77b24045935d31bffc84fb9e
+          created: 1743392929213
+          modified: 1743393766019
+          isPrivate: false
+          sortKey: -1743392929213
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7f68902d660942a0b4dd012bb6305c8e',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: refunds
+  - name: Uploads
+    meta:
+      id: fld_60cc4a9706784ec8b0bd54c520e4ad3e
+      created: 1743394561247
+      modified: 1743394577214
+      sortKey: -1743394561247
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_cf813aa1801346b28af4a1e3f32a5cd7
+          created: 1743394591621
+          modified: 1743398296559
+          isPrivate: false
+          sortKey: -1743394591621
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_8a44479b1afa44ab92e8a85c342ad6d3
+              name: file
+              disabled: false
+              type: file
+              fileName: C:\Users\Pedro\Desktop\comprovante.jpg
+        parameters:
+          - id: pair_4eee75deda0c47a5a21600bd20d778f4
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7f68902d660942a0b4dd012bb6305c8e',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Show
+        meta:
+          id: req_753887a147d147b0807b73e84d2b3bb6
+          created: 1743398853720
+          modified: 1743398870565
+          isPrivate: false
+          sortKey: -1743398853720
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: uploads
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_472174be9d307e1479b964473a736e48803309f1
+    created: 1743377572439
+    modified: 1743377572439
+environments:
+  name: Base Environment
+  meta:
+    id: env_472174be9d307e1479b964473a736e48803309f1
+    created: 1743377572436
+    modified: 1743382558574
+    isPrivate: false
+  data:
+    BASE_URL: http://localhost:3333
