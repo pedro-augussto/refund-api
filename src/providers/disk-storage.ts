@@ -3,20 +3,12 @@ import path from "node:path";
 
 import uploadConfig from "@/configs/upload";
 
-class DiskStorage {
+export class DiskStorage {
   async saveFile(file: string) {
-    const tmpPath = path.resolve(uploadConfig.TMP_FOLDER, file);
-    const destPath = path.resolve(uploadConfig.UPLOADS_FOLDER, file);
-
-    try {
-      await fs.promises.access(tmpPath);
-    } catch (error) {
-      console.log(error);
-      throw new Error(`Arquivo nao encontrato ${tmpPath}`);
-    }
-
-    await fs.promises.mkdir(uploadConfig.UPLOADS_FOLDER, { recursive: true });
-    await fs.promises.rename(tmpPath, destPath);
+    await fs.promises.rename(
+      path.resolve(uploadConfig.TMP_FOLDER,file),
+      path.resolve(uploadConfig.UPLOADS_FOLDER,file)
+    )
 
     return file;
   }
@@ -37,4 +29,3 @@ class DiskStorage {
   }
 }
 
-export { DiskStorage };
