@@ -6,9 +6,9 @@ import uploadConfig from "@/configs/upload";
 export class DiskStorage {
   async saveFile(file: string) {
     await fs.promises.rename(
-      path.resolve(uploadConfig.TMP_FOLDER,file),
-      path.resolve(uploadConfig.UPLOADS_FOLDER,file)
-    )
+      path.resolve(uploadConfig.TMP_FOLDER, file),
+      path.resolve(uploadConfig.UPLOADS_FOLDER, file)
+    );
 
     return file;
   }
@@ -28,4 +28,3 @@ export class DiskStorage {
     await fs.promises.unlink(filePath);
   }
 }
-

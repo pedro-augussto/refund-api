@@ -19,7 +19,7 @@ class RefundsController {
         .trim()
         .min(1, { message: "Informe o nome da solicitação" }),
       category: CategoriesEnum,
-      amount: z.number().positive({ message: "O valor precisa ser positiovo" }),
+      amount: z.number().positive({ message: "O valor precisa ser positivo" }),
       filename: z.string().min(20),
     });
 
