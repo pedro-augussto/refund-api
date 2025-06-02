@@ -4,9 +4,11 @@
   "description": "Api de reembolso",
   "main": "src/server.ts",
   "scripts": {
+    "dev-x": "tsx watch src/index.ts",
+    "dev": "ts-node-dev --watch --respawn src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
-    "dev": "tsx watch src/server.ts"
+    "start": "node dist/index.js",
+    "prisma": "prisma"
   },
   "author": "Pedro Augusto",
   "license": "ISC",
